@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+    
+    <main class="glass-container">
+        <header>
+            <h1>Hello There</h1>
+            <p class="subtitle">Ready to say hi?</p>
+        </header>
+
+        <div class="input-group">
+            <input type="text" id="greetingInput" placeholder="Type 'hi' here..." autocomplete="off">
+            <div class="input-highlight"></div>
+        </div>
+
+        <div id="outputContainer" class="output-container hidden">
+            <p id="greetingOutput" class="greeting-text"></p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
