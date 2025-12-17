@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+env-vibecode2
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+server.log
+test_genai.py
+verify_greet.py
+README.md
+task.md
+implementation_plan.md
+walkthrough.md

@@ -7,7 +7,9 @@ from google.genai import types
 
 load_dotenv()
 
-app = Flask(__name__)
+from flask import Flask, request, jsonify, send_from_directory
+
+app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
 # Configure Gemini API
@@ -24,6 +26,10 @@ generation_config = types.GenerateContentConfig(
     top_k=1,
     max_output_tokens=800,  # Increased to prevent premature cuts
 )
+
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
 
 @app.route('/api/greet', methods=['POST'])
 def greet():
