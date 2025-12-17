@@ -1,0 +1,25 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 109-541-876
+127.0.0.1 - - [17/Dec/2025 11:36:07] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:05] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:06] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:11] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:12] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:17] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:18] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:22] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:23] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:26] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:27] "POST /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:40] "OPTIONS /api/greet HTTP/1.1" 200 -
+127.0.0.1 - - [17/Dec/2025 11:37:41] "POST /api/greet HTTP/1.1" 200 -
+ * Detected change in '/Users/leejos/Desktop/pycoach/vibecode_proj2/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 109-541-876

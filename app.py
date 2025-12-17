@@ -2,7 +2,8 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 load_dotenv()
 
@@ -14,17 +15,15 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     print("Warning: GEMINI_API_KEY not found in environment variables.")
 
-genai.configure(api_key=api_key)
+client = genai.Client(api_key=api_key)
 
 # Generation config
-generation_config = {
-    "temperature": 0.9,
-    "top_p": 1,
-    "top_k": 1,
-    "max_output_tokens": 50,
-}
-
-model = genai.GenerativeModel(model_name="gemini-2.5-flash", generation_config=generation_config)
+generation_config = types.GenerateContentConfig(
+    temperature=0.9,
+    top_p=1,
+    top_k=1,
+    max_output_tokens=800,  # Increased to prevent premature cuts
+)
 
 @app.route('/api/greet', methods=['POST'])
 def greet():
@@ -42,8 +41,18 @@ def greet():
             f"Make it vary each time and be creative. Don't just say \"Hello\"."
         )
 
-        response = model.generate_content(prompt)
-        reply = response.text.strip()
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+            config=generation_config
+        )
+        
+        reply = response.text
+        if reply:
+             reply = reply.strip()
+        else:
+             print(f"Warning: Empty response text. Finish reason: {response.candidates[0].finish_reason if response.candidates else 'Unknown'}")
+             reply = "Hello! (I'm speechless right now!) 😶"
 
         return jsonify({'reply': reply})
 
@@ -52,4 +61,4 @@ def greet():
         return jsonify({'reply': "I'm having a bit of a brain freeze, but hello anyway! 🧊"}), 500
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(port=5002, debug=True)
